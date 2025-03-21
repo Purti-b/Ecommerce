@@ -1,6 +1,6 @@
-package Selenium.pageobject;
+package SeleniumFramework.PageObject;
 
-import ReusableComponent.ReusableComponent;
+import SeleniumFramework.ReusableComponent.ReusableComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

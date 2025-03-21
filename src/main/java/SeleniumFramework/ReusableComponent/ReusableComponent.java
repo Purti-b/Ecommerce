@@ -1,6 +1,6 @@
-package ReusableComponent;
+package SeleniumFramework.ReusableComponent;
 
-import Selenium.pageobject.CartPage;
+import SeleniumFramework.PageObject.CartPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
