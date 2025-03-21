@@ -1,6 +1,7 @@
 package SeleniumFramework.PageObject;
 
 import SeleniumFramework.ReusableComponent.ReusableComponent;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,7 +31,8 @@ public class CartPage extends ReusableComponent {
     }
 
     public CheckOutPage goToCheckOut() throws InterruptedException {
-        goToCheckOut.click();
+        //goToCheckOut.click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", goToCheckOut);
         waitForElementToDisappear();
         return new CheckOutPage(driver);
     }

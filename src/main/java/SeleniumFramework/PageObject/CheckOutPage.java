@@ -32,7 +32,7 @@ public class CheckOutPage extends ReusableComponent {
         Actions a = new Actions(driver);
         a.sendKeys(sendCountry, country).build().perform();
         waitForElementToAppear(waitCountry);
-        selectCountry.click();
+        ((JavascriptExecutor)driver).executeScript("arguments[0].click();", selectCountry);
         waitForElementToDisappear();
     }
 
