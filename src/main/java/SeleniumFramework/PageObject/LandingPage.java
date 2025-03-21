@@ -29,14 +29,23 @@ public class LandingPage extends ReusableComponent {
     @FindBy(id = "login")
     WebElement submit;
 
+    @FindBy(css = ".ng-star-inserted")
+    WebElement errorMessage;
+
     public void goTo(){
         driver.get("https://rahulshettyacademy.com/client");
     }
+
     public ProductCatalogue loginApplication(String email, String password){
         userEmail.sendKeys(email);
         userPassword.sendKeys(password);
         submit.click();
         ProductCatalogue productCatalogue = new ProductCatalogue(driver);
         return productCatalogue;
+    }
+
+    public String errorValidation(){
+        waitForWebElementToAppear(errorMessage);
+        return errorMessage.getText();
     }
 }

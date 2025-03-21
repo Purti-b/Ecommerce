@@ -10,19 +10,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
-public class SubmitOrderTest {
+public class SubmitOrderTest extends BaseTest {
 
-    public static void main(String[] args) throws InterruptedException, IOException {
-        // TODO Auto-generated method stub
+    @Test
+
+    public void submitOrder() throws InterruptedException, IOException {
 
         String productName = "ZARA COAT 3";
         //WebDriverManager.chromedriver().setup();
-        BaseTest baseTest = new BaseTest();
-        WebDriver driver = baseTest.initializeDriver();
 
-        LandingPage landingPage = new LandingPage(driver);
-        landingPage.goTo();
         ProductCatalogue productCatalogue = landingPage.loginApplication("purti@gmail.com","Purti@2278");
 
         List<WebElement> products = productCatalogue.getProductList();
@@ -38,8 +36,6 @@ public class SubmitOrderTest {
 
         String confirmMessage = placedOrderPage.getTitle();
         Assert.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
-
-        driver.close();
 
     }
 
