@@ -1,6 +1,7 @@
 package SeleniumFramework.ReusableComponent;
 
 import SeleniumFramework.PageObject.CartPage;
+import SeleniumFramework.PageObject.OrderPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -23,6 +24,9 @@ public class ReusableComponent {
     @FindBy(css = "[routerlink*='cart']")
     WebElement cart;
 
+    @FindBy(css = "[routerlink*='/dashboard/myorders']")
+    WebElement order;
+
     public void waitForElementToAppear(By findBy){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
@@ -41,6 +45,11 @@ public class ReusableComponent {
     public CartPage goToCart(){
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", cart);
         return new CartPage(driver);
+    }
+
+    public OrderPage goToOrder(){
+        order.click();
+        return new OrderPage(driver);
     }
 }
 

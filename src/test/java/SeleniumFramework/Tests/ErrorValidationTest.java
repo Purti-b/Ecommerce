@@ -12,11 +12,11 @@ import java.util.List;
 
 public class ErrorValidationTest extends BaseTest {
 
-    @Test
+    @Test(groups = "ErrorValidation")
 
     public void incorrectCredentials() throws InterruptedException, IOException {
 
-            landingPage.loginApplication("purtib@gmail.com","Purti@2278");
+            landingPage.loginApplication("purtyb@gmail.com","Purti@2278");
             String expected = landingPage.errorValidation();
             Assert.assertEquals(expected,"Incorrect email or password.");
 
