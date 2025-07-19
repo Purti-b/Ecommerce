@@ -27,7 +27,9 @@ public class CheckOutPage extends ReusableComponent {
 
     @FindBy(css = ".action__submit")
     WebElement checkOut;
+
     By waitCountry = By.cssSelector(".ta-results");
+
     public void selectCountry(String country) throws InterruptedException {
         Actions a = new Actions(driver);
         a.sendKeys(sendCountry, country).build().perform();
