@@ -1,0 +1,6 @@
+[18596:8104:0720/162630.191:INFO:components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc:202] No machine level policy manager exists.
+[21036:8972:0720/162630.412:INFO:third_party\webrtc\rtc_base\cpu_info.cc:57] Available number of cores: 8
+[17040:12596:0720/162630.546:INFO:third_party\webrtc\rtc_base\cpu_info.cc:57] Available number of cores: 8
+[18796:6688:0720/162630.602:VERBOSE1:components\viz\service\main\viz_main_impl.cc:86] VizNullHypothesis is disabled (not a warning)
+[19444:7704:0720/162630.876:INFO:third_party\webrtc\rtc_base\cpu_info.cc:57] Available number of cores: 8
+[18596:21324:0720/162634.860:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT

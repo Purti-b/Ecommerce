@@ -1,14 +1,22 @@
 package SeleniumFramework.TestComponents;
 
 import SeleniumFramework.PageObject.LandingPage;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 public class BaseTest {
@@ -22,6 +30,7 @@ public class BaseTest {
         properties.load(fileInputStream);
         String browserName = properties.getProperty("Browser");
 
+
         if(browserName.equalsIgnoreCase("chrome")) {
             driver = new ChromeDriver();
         }
@@ -31,6 +40,18 @@ public class BaseTest {
         return driver;
     }
 
+    public List<HashMap<String, String>> getJsonDataToMap(String filePath) throws IOException {
+
+        //read json to string
+        String jsonContent = FileUtils.readFileToString(new File(filePath));
+
+        //string to map
+        ObjectMapper mapper = new ObjectMapper();
+        List<HashMap<String, String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String,String>>>(){
+        });
+
+        return data;
+    }
     @BeforeMethod(alwaysRun = true)
     public LandingPage launchApplication() throws IOException {
         driver = initializeDriver();
